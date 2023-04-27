@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4C4B16;">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/demo">Demo</a>
+                </li>
+            
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Salir</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Iniciar sesion</a>
+                </li>
+                <!--
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Sign up</a>
+                </li>
+                -->
+                {% endif %}
+
+                {% if user.username == 'aleja'%}
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Panel Admin</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

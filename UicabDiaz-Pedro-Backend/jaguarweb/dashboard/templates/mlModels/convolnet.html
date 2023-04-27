@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+</style>
+
+<div class="col-md-4 offset-md-4" style="margin-top: 40px;">
+    <form action='objdect' method="post" enctype="multipart/form-data" class="card card-body" p-5 style="background-color: #8f865c; color: black; margin-top: 75px;">
+        <h1 style="text-align: center; font-family: 'Oswald', sans-serif;">Detección de objetos</h1>
+        <!-- Upload the image -->
+        <div class="mb-3" style="padding-top: 15px;">
+            <label for="formFile" class="form-label">Carga tu imagen:</label>
+            <input class="form-control" type="file" name="imageFile">
+        </div>
+        <button class="btn btn-dark">Subir</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+</style>
+
+{% if request.user.is_authenticated%}
+<h2 style="padding-left: 17px; margin-top: 20px; color: black; font-family: 'Oswald', sans-serif;">Bienvenido {{user.username}} </h2>
+<!-- GALERIA -->
+<div class="container-fluid">
+    <div class="row" style="margin-top: 25px;">
+        <h2 style="font-family: 'Oswald', sans-serif; text-align: center; background-color: #87805E;">Galeria</h2>
+        <!-- DATETIME FILTER-->
+        <div class="col-2">
+
+            <form action='#' class="card card-body" p-5 style="background: #87805E;">
+                <h3 style="font-family: 'Oswald'">Selecciona la fecha</h3>
+
+                <!-- YEARS-->
+                <label for="Year">Año</label>
+                <select name="Year" id="Year" class="form-control">
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                </select>
+
+                <!-- MONTHS -->
+                <label for="Month">Mes</label>
+                <select name="Month" id="Month" class="form-control">
+                    <option value="Dic">Dic</option>
+                    <option value="Nov">Nov</option>
+                    <option value="Oct">Oct</option>
+                    <option value="Sep">Sep</option>
+                    <option value="Aug">Aug</option>
+                    <option value="Jul">Jul</option>
+                    <option value="Jun">Jun</option>
+                    <option value="May">May</option>
+                    <option value="Apr">Apr</option>
+                    <option value="Mar">Mar</option>
+                    <option value="Feb">Feb</option>
+                    <option value="Jan">Jan</option>
+                </select>
+
+                <!-- DAYS -->
+                <label for="Day">Dia</label>
+                <select name="Day" id="Day" class="form-control">
+                    <option value="31">31</option>
+                    <option value="30">30</option>
+                    <option value="29">29</option>
+                    <option value="28">28</option>
+                    <option value="27">27</option>
+                    <option value="26">26</option>
+                    <option value="25">25</option>
+                    <option value="24">24</option>
+                    <option value="23">23</option>
+                    <option value="22">22</option>
+                    <option value="21">21</option>
+                    <option value="20">20</option>
+                    <option value="19">19</option>
+                    <option value="18">18</option>
+                    <option value="17">17</option>
+                    <option value="16">16</option>
+                    <option value="15">15</option>
+                    <option value="14">14</option>
+                    <option value="13">13</option>
+                    <option value="12">12</option>
+                    <option value="11">11</option>
+                    <option value="10">10</option>
+                    <option value="09">9</option>
+                    <option value="08">8</option>
+                    <option value="07">7</option>
+                    <option value="06">6</option>
+                    <option value="05">5</option>
+                    <option value="04">4</option>
+                    <option value="03">3</option>
+                    <option value="02">2</option>
+                    <option value="01">1</option>
+                </select>
+                <br>
+                <button class="btn btn-dark" style="font-family: 'Arimo';">Filtrar</button>
+                <a class="btn btn-secondary" href="/dashboard" role="button" style="margin-top: 10px;">Limpiar</a>
+            </form>
+        </div>
+        <!-- GALERY-->
+        <div class="col-9" style="background-color: #c5be89; margin-left: 10px; overflow: auto; height: 600px;" >
+
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                {% for image in images %}
+                    <div class="col">
+                    <div class="card">
+                        <img src="data:image/jpg;base64, {{ image }}" class="img-fluid" alt="jaguar-gallery-card">
+                        <!-- 
+                        <div class="card-body">
+                            <h5 class="card-title">Card title: {{ keys }}</h5>
+                            <p class="card-text"> Last Modified:</p>
+                            <p class="card-text"> Tag: </p>
+                            <p class="card-text"> Sixe: </p>
+                        </div>
+                        -->
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DASHBOARD -->
+<div class="container-fluid">
+    <div class="row" style="margin-top: 45px;">
+        <h2 style="font-family: 'Oswald', sans-serif; text-align: center; background-color: #87805E;">Dashboard</h2>
+        <div class="content">
+            <h3 style="font-family: 'Oswald', sans-serif; text-align: center; background-color: #c5be89; height: 500px;">
+                Por el momento no hay metricas ni visualizaciones que mostrar.
+            </h3>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="alert alert-danger" role="alert">
+    ¡Ops! Para poder ver esta vista inicia sesion.
+</div>
+{% endif %}
+{% endblock %}
