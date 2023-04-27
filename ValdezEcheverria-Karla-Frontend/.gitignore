@@ -1,0 +1,8 @@
+*.sqlite3
+jaguarweb/jaguarweb/__pycache__/*
+jaguarweb/dashboard/__pycache__/*
+jaguarweb/dashboard/utils/__pycache__/*
+jaguarweb/dashboard/models/*
+jaguarweb/dashboard/migrations/__pycache__/*
+jaguarweb/model
+jaguarweb/media
