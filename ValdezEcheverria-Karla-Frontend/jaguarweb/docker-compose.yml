@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: tech4nature.2023
+      MYSQL_DATABASE: techfornature_db
+      MYSQL_USER: tfn_user
+      MYSQL_PASSWORD: tfnuser.2023
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    command: >
+      /bin/bash -c "chmod +x setsuperuser.sh && ./setsuperuser.sh"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy

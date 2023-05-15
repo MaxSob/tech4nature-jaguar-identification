@@ -1,0 +1,33 @@
+
+
+body{
+    background-color: #000000;
+}
+
+.Container{
+    position: absolute;
+    width: 570px;
+    height: 677px;
+    left: 840px;
+    top: 25px;
+    background: #f5f5f5;
+    border-radius: 30px;
+}
+.h2{
+    position: absolute;
+    width: 475px;
+    height: 83px;
+    left: 787px;
+    top: 155px;
+
+    font-family: 'Imprima';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 65px;
+    line-height: 75px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
